@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 var argv = require('yargs')
   .option('u', {
     alias: 'url',
@@ -33,6 +32,7 @@ const puppeteer = require('puppeteer');
 async function url2Image(){
   console.time('time');
   const browser = await puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
     headless: true
   });
   try {

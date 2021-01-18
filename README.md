@@ -14,6 +14,7 @@ jl-url2image -u https://baidu.com
 
 -m 是否移动端 isMobile
 
+国内用户推荐使用cnpm或yarn下载，避免出现安装puppeteer时无法下载的情况
 
 
 
