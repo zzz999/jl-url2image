@@ -21,6 +21,14 @@ var argv = require('yargs')
     type: 'boolean',
     default: true
   })
+  .option('mt', {
+    boolean:true,
+    alias: 'mobile-type',
+    demand: true,
+    describe: 'mobile type(iPhone 8,iPhone 5,iPad,iPhone X)',
+    type: 'string',
+    default: 'iPhone 8'
+  })
   .usage('Usage: jl-url2image [options]')
   .example('jl-url2image -url https://www.baidu.com/', 'convert https://www.baidu.com/ to jl-example.jpeg')
   .help('h')
@@ -38,9 +46,9 @@ async function url2Image(){
   try {
     const page = await browser.newPage();
     if(argv.m){
-      await page.emulate(puppeteer.devices['iPhone X'])
+      await page.emulate(puppeteer.devices[argv.mt])
     }
-    await page.goto(argv.u);
+    await page.goto(argv.u,{"waitUntil" : "networkidle0"});
     await page.screenshot({
       path: argv.f,
       type: 'jpeg',

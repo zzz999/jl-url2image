@@ -1,6 +1,6 @@
 {
   "name": "jl-url2image",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Convert websites into images",
   "main": "index.js",
   "bin": {
